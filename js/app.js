@@ -1,4 +1,5 @@
 const formulario = document.getElementById('formulario');
+
 formulario.addEventListener('submit', function(e){
    // previne a ação padrao do submit
     e.preventDefault();
@@ -20,14 +21,26 @@ const eventos = JSON.parse(localStorage.getItem('eventos')) || [];
 const nomeEvento = formulario.evento.value;
 const dataEvento = formulario.dataEvento.value;
 
+
     //adiciona o evento na lista de eventos
 
     eventos.push({
        nomeEvento,
        dataEvento
 
+       
+
     });
 
     //guarda a lista atualizada no local storage
     localStorage.setItem('eventos', JSON.stringify(eventos));
+
+    mostrarEventos();
 }
+
+function mostrarEventos(){
+    const item =document.createElement('li');
+   item.innerHTML = (evento, dataEvento);
+    
+}
+// item.textContent = evento.nomeEvento + "-" + evento.dataEvento;
